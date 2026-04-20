@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Woflè - Le Goût de la Terre | Fast-Food Premium Ivoirien</title>
+    <!-- SEO meta -->
+    <meta name="description" content="Découvrez Woflè, l'expérience ultime du fast-food Ivoirien. Plats traditionnels mis au goût du jour dans un univers premium.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+    <header class="header glass">
+        <a href="#" class="logo">Woflè<span>.</span></a>
+        <nav class="navbar">
+            <ul class="nav-list">
+                <li><a href="#accueil" class="nav-link active">Accueil</a></li>
+                <li><a href="#concept" class="nav-link">Le Concept</a></li>
+                <li><a href="#tous-les-plats" class="nav-link">Tous les plats</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="accueil" class="hero reveal">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1 class="hero-title">Woflè</h1>
+                <p class="slogan">L'excellence de la terre, en un clin d'œil.</p>
+                <div class="hero-buttons">
+                    <a href="#tous-les-plats" class="cta-button primary">Explorer notre Menu</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="concept" class="container reveal">
+            <div class="concept-content">
+                <div class="concept-text">
+                    <span class="badge">Notre vision</span>
+                    <h2 class="section-title">Une expérience culinaire luxueuse et authentique</h2>
+                    <p>Woflè redéfinit la gastronomie ivoirienne. Entre tradition profonde et modernité étincelante, nos plats vous offrent un voyage exclusif à travers les richesses de la Côte d'Ivoire. L'ambiance est feutrée, le goût est vibrant.</p>
+                </div>
+                <div class="concept-image glowing-box">
+                    <img src="placali.jpeg" alt="Plat traditionnel Ivoirien stylisé" class="rounded-img">
+                </div>
+            </div>
+        </section>
+
+        <section id="tous-les-plats" class="menu-section container reveal">
+            <div class="section-header">
+                <span class="badge">Notre carte</span>
+                <h2 class="section-title">L'Intégralité de nos Créations</h2>
+                <div class="menu-filters">
+                    <button class="filter-btn active" data-filter="all">Tous</button>
+                    <button class="filter-btn" data-filter="lagunaire">Lagunaire</button>
+                    <button class="filter-btn" data-filter="ouest">Ouest</button>
+                    <button class="filter-btn" data-filter="nord">Nord</button>
+                    <button class="filter-btn" data-filter="centre">Centre</button>
+                    <button class="filter-btn" data-filter="grillades">Grillades</button>
+                </div>
+            </div>
+            
+            <div class="menu-grid" id="full-menu">
+                <div class="menu-card glass reveal-up" data-category="lagunaire">
+                    <div class="img-wrapper"><img src="garba.jpeg" alt="Garba"></div>
+                    <div class="card-content">
+                        <h4>La "Garba'Box" Premium</h4>
+                        <p class="description">Attiéké supérieur, thon rouge croustillant, oignons doux et piments parfumés.</p>
+                        <div class="price-action">
+                            <span class="price">4 500 FCFA</span>
+                            <button class="add-btn"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-card glass reveal-up" data-category="lagunaire">
+                    <div class="img-wrapper"><img src="gytr.jpeg" alt="Attiéké poisson"></div>
+                    <div class="card-content">
+                        <h4>Attiéké Box Impériale</h4>
+                        <p class="description">Poisson délicatement braisé au feu de bois de manguier, sauce tomate oignon et alloco doré.</p>
+                        <div class="price-action">
+                            <span class="price">5 500 FCFA</span>
+                            <button class="add-btn"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card glass reveal-up" data-category="ouest">
+                    <div class="img-wrapper"><img src="manioc.jpg" alt="Manioc"></div>
+                    <div class="card-content">
+                        <h4>Kpang'Box Royale</h4>
+                        <p class="description">Riz parfumé aux feuilles de manioc, aubergines tendres, poisson fumé et filet de bœuf.</p>
+                        <div class="price-action">
+                            <span class="price">5 000 FCFA</span>
+                            <button class="add-btn"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-card glass reveal-up" data-category="ouest">
+                    <div class="img-wrapper"><img src="foutou.jpeg" alt="Foutou"></div>
+                    <div class="card-content">
+                        <h4>Foutou'Classique</h4>
+                        <p class="description">Foutou soyeux de banane, onctueuse sauce graine, aubergine ou claclo.</p>
+                        <div class="price-action">
+                            <span class="price">3 500 FCFA</span>
+                            <button class="add-btn"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card glass reveal-up" data-category="nord">
+                    <div class="img-wrapper"><img src="tchep.jpeg" alt="Tchep"></div>
+                    <div class="card-content">
+                        <h4>Le Tchep'Box Or</h4>
+                        <p class="description">Riz au jasmin parfumé, poisson du jour ultra frais, mijoté aux légumes de saison.</p>
+                        <div class="price-action">
+                            <span class="price">5 500 FCFA</span>
+                            <button class="add-btn"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-card glass reveal-up" data-category="nord">
+                    <div class="img-wrapper"><img src="sauce.jpeg" alt="Banga"></div>
+                    <div class="card-content">
+                        <h4>Banga'Box Épicée</h4>
+                        <p class="description">Sauce onctueuse à base de noix de palme fraîches, poisson fumé d'exception et riz blanc.</p>
+                        <div class="price-action">
+                            <span class="price">4 500 FCFA</span>
+                            <button class="add-btn"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card glass reveal-up" data-category="centre">
+                    <div class="img-wrapper"><img src="placali.jpeg" alt="Placali"></div>
+                    <div class="card-content">
+                        <h4>Placali'Box Fondant</h4>
+                        <p class="description">Pâte de manioc divinement douce, sauce graine aux amandes ou gombos croustillants.</p>
+                        <div class="price-action">
+                            <span class="price">3 500 FCFA</span>
+                            <button class="add-btn"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-card glass reveal-up" data-category="centre">
+                    <div class="img-wrapper"><img src="riz-sauce-tomate-poulet-2-1024x890.jpeg" alt="Moyo"></div>
+                    <div class="card-content">
+                        <h4>Moyô'Box Végétale</h4>
+                        <p class="description">Sauce froide éclatante à la tomate, oignon, piment doux et poisson fumé de nos côtes.</p>
+                        <div class="price-action">
+                            <span class="price">4 000 FCFA</span>
+                            <button class="add-btn"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-card glass reveal-up" data-category="grillades">
+                    <div class="img-wrapper"><img src="choukouya.png" alt="Choukouya de Mouton"></div>
+                    <div class="card-content">
+                        <h4>Choukouya de Mouton</h4>
+                        <p class="description">Mouton tendre braisé, épices du chef "Woflè", oignons croquants. Un délice épicé absolu.</p>
+                        <div class="price-action">
+                            <span class="price">6 500 FCFA</span>
+                            <button class="add-btn"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-card glass reveal-up" data-category="grillades">
+                    <div class="img-wrapper"><img src="kedjenou.png" alt="Poulet Kedjenou"></div>
+                    <div class="card-content">
+                        <h4>Kédjénou de Poulet</h4>
+                        <p class="description">Poulet braisé à l'étouffée dans un canari de terre avec légumes du marché, très pimenté.</p>
+                        <div class="price-action">
+                            <span class="price">7 000 FCFA</span>
+                            <button class="add-btn"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section container reveal">
+            <div class="contact-card glass">
+                <div class="contact-info">
+                    <span class="badge">Rencontrons-nous</span>
+                    <h2>Réservez votre table ou commandez</h2>
+                    <p>Woflè est là pour éveiller vos papilles. Contactez-nous pour toute commande express.</p>
+                    <div class="info-items">
+                        <div class="info-item">
+                            <div class="icon-box"><i class="fas fa-map-marker-alt"></i></div>
+                            <p>Rue des Jardins, Abidjan</p>
+                        </div>
+                        <div class="info-item">
+                            <div class="icon-box"><i class="fas fa-phone"></i></div>
+                            <p>+225 07 43 00 00 00</p>
+                        </div>
+                        <div class="info-item">
+                            <div class="icon-box"><i class="fas fa-envelope"></i></div>
+                            <p>vip@wofle.ci</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-container">
+                    <form class="contact-form">
+                        <div class="input-group">
+                            <input type="text" placeholder="Votre nom prestigieux" required>
+                        </div>
+                        <div class="input-group">
+                            <input type="email" placeholder="Contact email" required>
+                        </div>
+                        <div class="input-group">
+                            <textarea placeholder="Votre message ou commande..." rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="cta-button primary full-width">Envoyer la demande</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <a href="#" class="logo">Woflè<span>.</span></a>
+                <p>Le goût premium de l'Afrique de l'Ouest.</p>
+            </div>
+            <div class="social-links">
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Woflè. Tous droits réservés. Design Premium.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
