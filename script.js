@@ -38,8 +38,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // --- Intersection Observer (Scroll Reveal Animation) ---
-    const revealElements = document.querySelectorAll('.reveal, .reveal-up');
-
     const revealOptions = {
         threshold: 0.15,
         rootMargin: "0px 0px -50px 0px"
@@ -47,52 +45,80 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const revealOnScroll = new IntersectionObserver(function(entries, observer) {
         entries.forEach(entry => {
-            if (!entry.isIntersecting) {
-                return;
-            } else {
+            if (entry.isIntersecting) {
                 entry.target.classList.add('active');
                 observer.unobserve(entry.target);
             }
         });
     }, revealOptions);
 
-    revealElements.forEach(el => {
-        revealOnScroll.observe(el);
-    });
+    function observeElements() {
+        document.querySelectorAll('.reveal, .reveal-up').forEach(el => {
+            revealOnScroll.observe(el);
+        });
+    }
+    
+    // Initial observe
+    observeElements();
 
-    // --- Menu Filtering ---
+
+    // --- Dynamic DB Rendering & Menu Filtering ---
+    const fullMenu = document.getElementById('full-menu');
     const filterBtns = document.querySelectorAll('.filter-btn');
-    const menuCards = document.querySelectorAll('.menu-card');
 
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Remove active from all btns
-            filterBtns.forEach(b => b.classList.remove('active'));
-            // Add active to clicked
-            btn.classList.add('active');
+    function renderDishes(filterValue = 'all') {
+        const allDishes = window.DabaliDB ? window.DabaliDB.getDishes() : [];
+        if(!fullMenu) return;
 
-            const filterValue = btn.getAttribute('data-filter');
+        fullMenu.innerHTML = '';
+        
+        const filteredDishes = filterValue === 'all' 
+            ? allDishes 
+            : allDishes.filter(d => d.category === filterValue);
 
-            menuCards.forEach(card => {
-                const category = card.getAttribute('data-category');
+        filteredDishes.forEach(dish => {
+            const card = document.createElement('div');
+            card.className = 'menu-card glass reveal-up active'; // add active directly for filtered ones if already scrolled
+            card.setAttribute('data-category', dish.category);
+            
+            // Image error handler to avoid broken images if the file doesn't exist
+            card.innerHTML = `
+                <div class="img-wrapper">
+                    <img src="${dish.img}" alt="${dish.name}" onerror="this.src='manioc.jpg'">
+                    <div class="hover-overlay">
+                        <p class="description">${dish.desc}</p>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h4>${dish.name}</h4>
+                    <div class="price-action">
+                        <span class="price">${dish.price}</span>
+                        <button class="add-btn"><i class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+            `;
+            fullMenu.appendChild(card);
+        });
+        
+        // Re-observe newly added elements
+        observeElements();
+    }
+
+    if (fullMenu) {
+        // Initial Render
+        renderDishes('all');
+
+        // Filter functionality
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
                 
-                if (filterValue === 'all' || filterValue === category) {
-                    card.style.display = 'flex';
-                    // Re-trigger animation gracefully
-                    setTimeout(() => {
-                        card.style.opacity = '1';
-                        card.style.transform = 'translateY(0)';
-                    }, 50);
-                } else {
-                    card.style.opacity = '0';
-                    card.style.transform = 'translateY(20px)';
-                    setTimeout(() => {
-                        card.style.display = 'none';
-                    }, 300); // Wait for fade out
-                }
+                const filterValue = btn.getAttribute('data-filter');
+                renderDishes(filterValue);
             });
         });
-    });
+    }
 
     // --- Form Handling ---
     const contactForm = document.querySelector('.contact-form');
